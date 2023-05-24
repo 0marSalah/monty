@@ -16,14 +16,14 @@ int main(int argc, char *argv[]) {
     char *opcode, *arg;
 
     if (argc != 2) {
-        printf("Usage: %s <filename>\n", argv[0]);
-        return (EXIT_FAILURE);
+        printf("USAGE: monty %s\n", argv[0]);
+        exit(EXIT_FAILURE);
     }
 
     file = fopen(argv[1], "r");
     if (file == NULL) {
-        printf("Error opening file: %s\n", argv[1]);
-        return (EXIT_FAILURE);
+        printf("Error: Can't open file %s\\n", argv[1]);
+        exit(EXIT_FAILURE);
     }
 
     while (fgets(line, sizeof(line), file) != NULL) {
@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
             } else if (strcmp(opcode, "pall") == 0) {
                 pall();
             } else {
-                printf("L%d: Unknown opcode: %s\n", line_number, opcode);
+                printf("L%d: unknown instruction %s\n", line_number, opcode);
                 return EXIT_FAILURE;
             }
         }
