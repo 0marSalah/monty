@@ -63,5 +63,7 @@ void fadd(stack_t **head, unsigned int line_number);
 void nop(stack_t **head, unsigned int line_number);
 void sub(stack_t **head, unsigned int line_number);
 void fdiv(stack_t **head, unsigned int line_number);
+void mul(stack_t **head, unsigned int line_number);
+void mod(stack_t **head, unsigned int line_number);
 
 #endif

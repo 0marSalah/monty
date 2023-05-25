@@ -21,6 +21,8 @@ FILE *file)
         {"nop", nop},
         {"sub", sub},
         {"div", fdiv},
+				{"mul", mul},
+				{"mod", mod},
 				{NULL, NULL}
 				};
 	unsigned int i = 0;
