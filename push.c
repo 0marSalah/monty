@@ -8,18 +8,18 @@
 */
 void push(stack_t **head, unsigned int line_number)
 {
-	int n, j = 0, flag = 0;
+	int n, i = 0, is_digit = 0;
 
 	if (bus.arg)
 	{
 		if (bus.arg[0] == '-')
-			j++;
-		for (; bus.arg[j] != '\0'; j++)
+			i++;
+		for (; bus.arg[i] != '\0'; i++)
 		{
-			if (bus.arg[j] > 57 || bus.arg[j] < 48)
-				flag = 1;
+			if (bus.arg[i] > '9' || bus.arg[i] < '0')
+				is_digit = 1;
 		}
-		if (flag == 1)
+		if (is_digit == 1)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			fclose(bus.file);
