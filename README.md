@@ -101,4 +101,16 @@ The opcode add adds the top two elements of the stack.
     The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
         The top element of the stack contains the result
         The stack is one element shorter
+-----------------------------
+## 5. nop
+mandatory
+
+Implement the nop opcode.
+
+The nop opcode
+
+The opcode nop doesn’t do anything.
+
+    Usage: nop
+
 
