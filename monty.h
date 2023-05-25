@@ -1,15 +1,14 @@
-#ifndef MONTY_H
-#define MONTY_H
+#ifndef MAIN_H
+#define MAIN_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
+#define _GNU_SOURCE
 
-
-#define STACK_SIZE 100
-extern int stack[STACK_SIZE];
-extern int top;
+#include <stdio.h> /* File, fopen, getline, fclose, stderr */
+#include <stdlib.h> /* EXIT_SUCCESS, EXIT_FAILURE, free */
+#include <unistd.h> /* isatty, write, STDIN_FILENO */
+#include <ctype.h> /* isdigit */
+#include <sys/types.h> /* ssize_t */
+#include <string.h> /* strtok, strcmp */
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -22,9 +21,9 @@ extern int top;
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -37,11 +36,25 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void push(int line_number, char *arg);
-void pall();
 
-#endif /*MONTY_H*/
+typedef struct bus_s
+{
+	char *arg;
+	FILE *file;
+	char *content;
+	int lifi;
+}  bus_t;
+extern bus_t bus;
+
+int execute(char *content, stack_t **head, unsigned int line_number,
+FILE *file);
+void push(stack_t **head, unsigned int line_number);
+void pall(stack_t **head, unsigned int line_number);
+void free_stack(stack_t *head);
+void add_node(stack_t **head, int n);
+
+#endif

@@ -1,30 +1,42 @@
 #include "monty.h"
 
 /**
- * push - Pushes an element to the stack.
- * @line_number: int
- * @arg: char
+ * s_push - add node to the stack
+ * @head: stack head
+ * @line_number: line_number
+ * Return: no return
 */
+void push(stack_t **head, unsigned int line_number)
+{
+	int n, j = 0, flag = 0;
 
-void push(int line_number, char *arg) {
-    int value;
-
-    if (arg == NULL)
-    {
-        printf("L%d: usage: push integer\n", line_number);
-        exit(EXIT_FAILURE);
-    }
-
-    value = atoi(arg);
-
-    if (top < STACK_SIZE - 1)
-    {
-        top++;
-        stack[top] = value;
-    }
-    else
-    {
-        printf("L%d: Stack overflow\n", line_number);
-        exit(EXIT_FAILURE);
-    }
+	if (bus.arg)
+	{
+		if (bus.arg[0] == '-')
+			j++;
+		for (; bus.arg[j] != '\0'; j++)
+		{
+			if (bus.arg[j] > 57 || bus.arg[j] < 48)
+				flag = 1;
+		}
+		if (flag == 1)
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			fclose(bus.file);
+			free(bus.content);
+			free_stack(*head);
+			exit(EXIT_FAILURE);
+		}
+	}
+	else
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	n = atoi(bus.arg);
+	if (bus.lifi == 0)
+		add_node(head, n);
 }
