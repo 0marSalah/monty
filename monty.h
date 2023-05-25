@@ -58,5 +58,6 @@ void free_stack(stack_t *head);
 void add_node(stack_t **head, int n);
 void pint(stack_t **head, unsigned int line_number);
 void pop(stack_t **head, unsigned int line_number);
+void swap(stack_t **head, unsigned int line_number);
 
 #endif
