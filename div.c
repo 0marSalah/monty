@@ -7,7 +7,7 @@
  * Return: no return
  */
 
-void div(stack_t **head, unsigned int line_number)
+void fdiv(stack_t **head, unsigned int line_number)
 {
   stack_t *h;
   int div;

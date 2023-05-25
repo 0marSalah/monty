@@ -17,10 +17,10 @@ FILE *file)
         {"pint", pint},
         {"pop", pop},
         {"swap", swap},
-        {"add", add},
+        {"add", fadd},
         {"nop", nop},
         {"sub", sub},
-        {"div", div},
+        {"div", fdiv},
 				{NULL, NULL}
 				};
 	unsigned int i = 0;

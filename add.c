@@ -7,7 +7,7 @@
  * Return: no return
  */
 
-void add(stack_t **head, unsigned int line_number)
+void fadd(stack_t **head, unsigned int line_number)
 {
   stack_t *h;
   int sum;
