@@ -20,6 +20,7 @@ FILE *file)
         {"add", add},
         {"nop", nop},
         {"sub", sub},
+        {"div", div},
 				{NULL, NULL}
 				};
 	unsigned int i = 0;
