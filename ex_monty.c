@@ -14,6 +14,7 @@ FILE *file)
 	instruction_t opList[] = {
 				{"pall", pall},
 				{"push", push},
+        {"pint", pint},
 				{NULL, NULL}
 				};
 	unsigned int i = 0;
